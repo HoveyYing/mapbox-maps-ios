@@ -28,6 +28,10 @@ internal class DistanceFormatter: MeasurementFormatter {
                 measurement.convert(to: .feet)
             }
         }
-        return string(from: measurement)
+        
+        var string = string(from: measurement)
+        string = string.replacingOccurrences(of: "公里", with: "km")
+        string = string.replacingOccurrences(of: "米", with: "m")
+        return string
     }
 }
